@@ -1,5 +1,5 @@
 # DL-Paper-Notes
-My notes on a few DL Papers.
+My notes on a few Deep Learning and Machine Learning Papers.
 
 Citations:
 <br>
