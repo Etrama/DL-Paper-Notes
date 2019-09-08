@@ -1,5 +1,4 @@
-Notes on the paper called:
-Auto Augment: Learning augmentation strategies from data
+# Notes on the paper called: <br> Auto Augment: Learning augmentation strategies from data
 
 # Difficulty of Comprehension: Straightforward. Paper does not feel overwhelming at any point.
 
