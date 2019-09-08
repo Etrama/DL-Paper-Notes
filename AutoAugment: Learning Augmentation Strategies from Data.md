@@ -174,3 +174,7 @@ This goes for all 5 sub policies. The subpolicy itself is determined from the bu
 # Experiments and Results:
 Refer to the paper.
 
+# To Do:
+- [ ] Be faster
+- [ ] Add a TL;DR.
+- [ ] Add the sections including and after Experiments and Results.
