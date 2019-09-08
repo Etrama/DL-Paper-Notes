@@ -2,7 +2,9 @@
 My notes on a few DL Papers.
 
 Citations:
+<br>
 1. AutoAugment: Learning Augmentation Policies from Data
+<br>
 @article{DBLP:journals/corr/abs-1805-09501,
   author    = {Ekin Dogus Cubuk and
                Barret Zoph and
@@ -20,3 +22,4 @@ Citations:
   biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1805-09501},
   bibsource = {dblp computer science bibliography, https://dblp.org}
 }
+<br>
