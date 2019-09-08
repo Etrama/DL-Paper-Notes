@@ -11,9 +11,9 @@ data is even more important that tuning the learning rate or any other hyper par
 sub policies within it and one of these is randomly chosen for each mini-batch.
 
 * A sub-policy has 2 operations and each operation is an image processing function wherein each sub-policy has some operation probabilities and magnitudes. Operations include:
- * Translation
- * Rotation
- * Shearing
+  * Translation
+  * Rotation
+  * Shearing
  
 * The paper uses a search algo to find the best policy for the highest validation accuracy.
 
