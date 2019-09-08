@@ -143,7 +143,7 @@ I'm imagining this an as array of 30 values, something like:
   4. Operation Type 2 for Subpolicy 1
   5. Magnitude 2 of above for SubPolicy 1.
   6. Probability 2 of SubPolicy 1.
- This goes for all 5 sub policies. The subpolicy itself is determined from the bunch of 6 values like above. Operation Type is one of the 16 types defined. Magnitude is one of the 10 possible magnitude values. Probability of application is one of the 11 possible probabilities that can be applied.
+<br>This goes for all 5 sub policies. The subpolicy itself is determined from the bunch of 6 values like above. Operation Type is one of the 16 types defined. Magnitude is one of the 10 possible magnitude values. Probability of application is one of the 11 possible probabilities that can be applied.
   
  ### The training of controller RNN:
 * RNN trained with a "reward signal"
