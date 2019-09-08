@@ -143,7 +143,9 @@ I'm imagining this an as array of 30 values, something like:
   4. Operation Type 2 for Subpolicy 1
   5. Magnitude 2 of above for SubPolicy 1.
   6. Probability 2 of SubPolicy 1.
-<br>This goes for all 5 sub policies. The subpolicy itself is determined from the bunch of 6 values like above. Operation Type is one of the 16 types defined. Magnitude is one of the 10 possible magnitude values. Probability of application is one of the 11 possible probabilities that can be applied.
+
+<br>
+This goes for all 5 sub policies. The subpolicy itself is determined from the bunch of 6 values like above. Operation Type is one of the 16 types defined. Magnitude is one of the 10 possible magnitude values. Probability of application is one of the 11 possible probabilities that can be applied.
   
  ### The training of controller RNN:
 * RNN trained with a "reward signal"
@@ -161,10 +163,10 @@ I'm imagining this an as array of 30 values, something like:
 * Used PPO - Proximal Policy Optimization with a 0.00035 learning rate.
 * Is this weight decay? - Entropy penalty with weight of 0.00001.
 * Baseline function is an exponential average of previous rewards with a weight of 0.95. I think this would be something like:
-Reward at time t +
-(0.95)<sup>1</sup> Reward at time t-1 +
-(0.95)<sup>2</sup> Reward at time t-2 +
-and so on.
+<br>Reward at time t +
+<br>(0.95)<sup>1</sup> Reward at time t-1 +
+<br>(0.95)<sup>2</sup> Reward at time t-2 +
+<br>and so on.
 * Weights of the controller are initialized uniformly between -0.1 and 0.1.
 #### Chance for futrther research, paper openly admits that the search algorithm- PPO used may not be the best. Suggests the usage of genetic programming or even random search to improve the results in the paper.
 * After this search, sub policies from 5 best policies are concatenated into a single policy with 25 sub policies, which is used to train the mdoels for each dataset.
