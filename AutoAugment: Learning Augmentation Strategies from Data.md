@@ -136,7 +136,7 @@ that describe data augmentation strategies [47]."
  * RNN Controller
  * Proximal Policy Optimization training algorithm
 * The controller makes 30 softmax predictions. 
-I'm imagining this an as array of 30 values, something like: 
+I'm imagining this an as array of 30 values, something like: (this is all guesswork on my part till the next section)
   1. Operation Type 1 for Subpolicy 1
   2. Magnitude 1 of above for SubPolicy 1.
   3. Probability 1 of SubPolicy 1.
