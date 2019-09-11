@@ -32,6 +32,7 @@ mixup [31, 24, 25] and dropout [21, 26]."
    
 ## Regularization methods for ResNet family
 ### Shake-Shake regularization: 
+<img src="https://cdn.mathpix.com/snip/images/7-zHnbTRX3xvITcjs_E7jGUvGc5uLhtH9dOFiuBL1qY.original.fullsize.png"><br>
   * used ONLY on ResNext.
   * Basic ResNext block has a 3 branch architecture given by: <br>
   (Side Note: How to show Math equations in Github: https://stackoverflow.com/questions/11256433/how-to-show-math-equations-in-general-githubs-markdownnot-githubs-blog, decided to use https://mathpix.com/)
@@ -55,6 +56,7 @@ mixup [31, 24, 25] and dropout [21, 26]."
       * This disturbance prevents from the network parameters being captured in local minima, in simpler words, in the loss vs parameter graph, it helps avoid the local dips and looks for the biggest dip (global minima). WHY? We dont know yet.
        
 ### RandomDrop Regularization (aka Stochastic Depth and ResDrop)
+<img src="https://cdn.mathpix.com/snip/images/No8c0ciyigGDIx065G9i5uSor-nAhzGRAgaLRvXzBEQ.original.fullsize.png"><br>
 * Proposed for ResNet but also applied to PyramidNet.
 * Uses the following 2 branch architecture:
 * <img src="https://cdn.mathpix.com/snip/images/-53KvhzkwoTmBmfX6kLaVi-pDIX2Dv9zR9E7hND-neg.original.fullsize.png"><br>
@@ -74,9 +76,17 @@ mixup [31, 24, 25] and dropout [21, 26]."
     * p<sub>L</sub> is the initial parameter, to be set to 0.5.
     
 ## ShakeDrop Regularization:
-    
-    
-    
+<img src="https://cdn.mathpix.com/snip/images/9td58DVkAsnvf2jpKDzdeqiDF4qfuwNqpmHEgLEc_H0.original.fullsize.png"><br>  
+Shaedrop is given as:
+<img src="https://cdn.mathpix.com/snip/images/h2cxtd3eJytJ-SJIsiUy96FnP7qFBZiYlMi-veF3AXc.original.fullsize.png"><br>    
+      * b<sub>l</sub> is a Bernoulli random variable, where &nbsp; <img src="https://cdn.mathpix.com/snip/images/IyCS_I3D-45g3GZ93j2toq4LdheBmV4Ys8fKc0gpXQs.original.fullsize.png"><br>
+      * &alpha; and &beta; are independent random variables.
+      * &alpha; and &beta; mostly belong to the range:
+         1.
+      
+      
+      
+### What in god's name is a Bernoulli randon variable?
     
     
       
