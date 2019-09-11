@@ -117,7 +117,7 @@ Shakedrop is given as:
 
 ## Single-branch Shake Regularization:
 * Since Shake-Shake relies on &alpha; and 1 - &alpha; during the forward pass (same dependence on &beta; during the backward pass), it absolutely needs 2 branches, so that we can scale one of them by &alpha; and one of them by 1 - &alpha;.
-### Random musing: Has anyone tried a 3 branch architecture with the co-efficients of the branches summing up to one? <br>(Spoiler slert) Since we know the single branch shake story has a bad ending - one critic said it failed to deliver. <br>It seems like perhaps more branches scaled with the co-efficients summing up to one might not be bad.<br> Maybe we could try making one where [&alpha; + (1- &alpha;) + (1- &alpha;)<sup>2</sup>] as the scaling factors.<br> We'll need to analyse the range of &alpha; and &beta; to maybe come up with a floor and ceiling for &alpha; and &beta; values.
+### Random musing: Has anyone tried a 3 branch architecture with the co-efficients of the branches summing up to one? Ouch. ResNext which is used in Shake-Shake IS a 3 branch architecture. Serves me right for only reading the Resnet paper. <br>(Spoiler slert) Since we know the single branch shake story has a bad ending - one critic said it failed to deliver. <br>It seems like perhaps more branches scaled with the co-efficients summing up to one might not be bad.<br> Maybe we could try making one where [&alpha; + (1- &alpha;) + (1- &alpha;)<sup>2</sup>] as the scaling factors.<br> We'll need to analyse the range of &alpha; and &beta; to maybe come up with a floor and ceiling for &alpha; and &beta; values.
 * The paper quoted above (Devries et al) also showed that noise addition in the feature space generates reasonably augmented data.
 * Ok, I guess noise addition too shifts the data points up and down a little making it harder to learn. Similar to scaling it by a constant, but instead of multiplying we just add noise to the data. 
 * Coming back to Single Branch Shake: 
@@ -128,7 +128,7 @@ Shakedrop is given as:
 
 ### Random Musing: To be honest, I'm a bit puzzled here. The authors mention applying Single Branch Shake on a 110-layer PyramidNet with some range of &alpha; and &beta; AFTER applying Shake-Shake.
 
-### Random Musing: Does this mean that at the risk of having more generalized error, can we train our network faster? Maybe link it to One Shot Learning? I think we should read a One-Shot Learning Paper next.
+### Random Musing: Does this mean that at the risk of having more generalized error, we can train our network faster? Maybe link it to One Shot Learning? I think we should read a One-Shot Learning Paper next.
 
 ## Stabilization of training:
 * The authors also talk about the extra branch.
