@@ -124,10 +124,21 @@ Shakedrop is given as:
 * <img src="https://cdn.mathpix.com/snip/images/lPsqyP5p0Mu4q1FDjP8oBuwGp5DLwaNfLephcTSrUcg.original.fullsize.png"><br>
 * Like the spoiler said, Single Branch Shake does not work well in practice. 
 
+### Why doesn't Single Branch shake work well despite Shake-Shake working so well on multiple branches? Why can't I think of anything other than the number of branches?
+
 ### Random Musing: To be honest, I'm a bit puzzled here. The authors mention applying Single Branch Shake on a 110-layer PyramidNet with some range of &alpha; and &beta; AFTER applying Shake-Shake.
 
-### Does this mean that at the risk of having more generalized error, can we train our network faster? Maybe link it to One Shot Learning? I think we should read a One-Shot Learning Paper next.
-         
+### Random Musing: Does this mean that at the risk of having more generalized error, can we train our network faster? Maybe link it to One Shot Learning? I think we should read a One-Shot Learning Paper next.
+
+## Stabilization of training:
+* The authors also talk about the extra branch.
+1. Having &alpha and &beta; scale the forward and backward pass scales the gradient by &beta;/&alpha; or (1- &beta;)/(1-&alpha;) times the usual gradient.
+2. This means as alpha gets close to 0 or 1, the gradient gets close to infinity / a very very large number - an exploding gradient.
+3. The two branches work as a failsafe because when &alpha; is close to 0 or 1 the gradient on the other branch is still manageable.
+4. Since, single branch shake does not have this fail-safe that is probably why it doesn't do well.
+5. There's a note that says that &beta;/&alpha; or (1- &beta;)/(1-&alpha;) do well if they are on the same side of 0.5, that is &alpha; and &beta; are 0.5 and 0.7 because the scaling is less than the case when say &alpha and &beta; are 0.1 and 0.9 respectively. Less likely to explode a gradient with the former.
+
+
       
       
       
