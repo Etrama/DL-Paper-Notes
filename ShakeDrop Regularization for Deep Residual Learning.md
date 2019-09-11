@@ -77,16 +77,61 @@ mixup [31, 24, 25] and dropout [21, 26]."
     
 ## ShakeDrop Regularization:
 <img src="https://cdn.mathpix.com/snip/images/9td58DVkAsnvf2jpKDzdeqiDF4qfuwNqpmHEgLEc_H0.original.fullsize.png"><br>  
-Shaedrop is given as:
+Shakedrop is given as:
 <img src="https://cdn.mathpix.com/snip/images/h2cxtd3eJytJ-SJIsiUy96FnP7qFBZiYlMi-veF3AXc.original.fullsize.png"><br>    
       * b<sub>l</sub> is a Bernoulli random variable, where &nbsp; <img src="https://cdn.mathpix.com/snip/images/IyCS_I3D-45g3GZ93j2toq4LdheBmV4Ys8fKc0gpXQs.original.fullsize.png"><br>
       * &alpha; and &beta; are independent random variables.
       * &alpha; and &beta; mostly belong to the range:
-         1.
+            1.&nbsp;<img src="https://cdn.mathpix.com/snip/images/rK92IWRFW9rKPuMbN_1WRBkftUgu38PAhXDLE8KJdoc.original.fullsize.png"><br>
+            2.&nbsp;<img src="https://cdn.mathpix.com/snip/images/oW3DKk7lW-l94yh5lxfJn4mRAW9zg60WDIziEB6Gqog.original.fullsize.png"><br>
+      * In the training phase b<sub>l</sub> controls the behavior of Shake-Drop.
+      * Two cases:
+            1. b<sub>l</sub> = 0. Shake-Drop reduces into Resnet. <img src="https://cdn.mathpix.com/snip/images/OK90Bx62NWwNivpdajfn4FBL2mG9C6LLoJt_jIdx7WQ.original.fullsize.png"><br>
+            2. b<sub>l</sub> = 1. Shake-Drop's Resnet form is shaken by &alpha; and &beta;. <img src="https://cdn.mathpix.com/snip/images/3Qg3sbxY9XA4brTrD2I6QnOxZVbFJW_lzMXzedM2qIQ.original.fullsize.png"><br>
+            
+### What in god's name is a Bernoulli random variable?
+* To be very honest, not at all complicated.
+* Refer the first few lines of: <a href= "https://web.stanford.edu/class/archive/cs/cs109/cs109.1178/lectureHandouts/070-bernoulli-binomial.pdf">this.</a>
+* It's simply a variable, which can either have the value 0 or 1.
+* A Switch Flick, a coin toss, a single digit binary state.
+
+## Interpretation of Shake-Shake regularization:
+* Tries to give an intuitive explanation of Shake-Shake ever heretofore attempted.
+<img src="https://cdn.mathpix.com/snip/images/7-zHnbTRX3xvITcjs_E7jGUvGc5uLhtH9dOFiuBL1qY.original.fullsize.png"><br>  
+* As seen above, Shake-Shake sways the forward pass by a factor of &alpha;.
+* Some other paper (DeVries and Taylor) demonstrated that "interpolation of data in the feature space can synthesize reasonable augmented data." - meaning this is a form of data augmentation. I guess we could see it like that:
+   1. Imagine you had an input which goes through vanilla Resnet absolutely unmodified. The input is - x.
+   2. But then we had another resnet wherein we multiply the forward pass by some factor &alpha;. We COULD see this new input as a new data point which is not in the original dataset. 
+      * For 1 above - The input for the resnet was - x
+      * For 2 above - The input for this new resnet is - &alpha; * x.
+      * We can interpret &alpha; * x as some data point, since x is also a data point. 
+      * This &alpha; * x datapoint was not present in the original data.
+      * We can interpret this as a challenge to the network. Making it harder to converge.
+      * Similarly, consider &beta; on the backward pass. This factor also makes it harder to converge.
+      * I'm guessing here, but, given we have enough data, these challenges called &alpha; and &beta; presented to the network make it generalize better since it is difficult to achieve convergence.
+      * This guess is supported by the fact that it takes 6 times as long to achieve the improved results. 
+
+### Random Musing: Can we try make this faster? I think we should compare the time taken for this with the time taken for Auto-Augment, since Auto-Augment already achieves better results.
+
+### Random Musing: Do all augmentation appraoches increase the time that it takes to train a network?
+
+## Single-branch Shake Regularization:
+* Since Shake-Shake relies on &alpha; and 1 - &alpha; during the forward pass (same dependence on &beta; during the backward pass), it absolutely needs 2 branches, so that we can scale one of them by &alpha; and one of them by 1 - &alpha;.
+### Random musing: Has anyone tried a 3 branch architecture with the co-efficients of the branches summing up to one? <br>(Spoiler slert) Since we know the single branch shake story has a bad ending - one critic said it failed to deliver. <br>It seems like perhaps more branches scaled with the co-efficients summing up to one might not be bad.<br> Maybe we could try making one where [&alpha; + (1- &alpha;) + (1- &alpha;)<sup>2</sup>] as the scaling factors.<br> We'll need to analyse the range of &alpha; and &beta; to maybe come up with a floor and ceiling for &alpha; and &beta; values.
+* The paper quoted above (Devries et al) also showed that noise addition in the feature space generates reasonably augmented data.
+* Ok, I guess noise addition too shifts the data points up and down a little making it harder to learn. Similar to scaling it by a constant, but instead of multiplying we just add noise to the data. 
+* Coming back to Single Branch Shake: 
+* <img src="https://cdn.mathpix.com/snip/images/lPsqyP5p0Mu4q1FDjP8oBuwGp5DLwaNfLephcTSrUcg.original.fullsize.png"><br>
+* Like the spoiler said, Single Branch Shake does not work well in practice. 
+
+### Random Musing: To be honest, I'm a bit puzzled here. The authors mention applying Single Branch Shake on a 110-layer PyramidNet with some range of &alpha; and &beta; AFTER applying Shake-Shake.
+
+### Does this mean that at the risk of having more generalized error, can we train our network faster? Maybe link it to One Shot Learning? I think we should read a One-Shot Learning Paper next.
+         
       
       
       
-### What in god's name is a Bernoulli randon variable?
+
     
     
       
