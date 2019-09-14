@@ -147,13 +147,14 @@ Shakedrop is given as:
 * Data Augmentation and Adversarial Training generate new data explicitly. 
    1. Data Augmentation does so on say image data by rotation, flipping, varying the brightness or contrast to make a slightly or vastly different copy of the original image.
    2. To be honest, I dont know much about Adversarial training. Adversarial Training, all I know is we generate some samples to try and fool the network.
-* The authors summarize their results in this table: &nbsp; &nbsp <img src="https://cdn.mathpix.com/snip/images/MUf3-bezBY6aE45BGjQeNA4LI7faveIqlsi1XJzRy0A.original.fullsize.png"> <br>
+* The authors summarize their results in this table: &nbsp; &nbsp; <img src="https://cdn.mathpix.com/snip/images/MUf3-bezBY6aE45BGjQeNA4LI7faveIqlsi1XJzRy0A.original.fullsize.png"> <br>
 
-   
+I think the conceptual part of the paper ends here, I jsut want to rush through the experiments now, because these will apply more when I start coding these papers. Let's move on to a different paper.
+ 
 
       
       
-      
+     
 
     
     
