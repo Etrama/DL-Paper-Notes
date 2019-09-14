@@ -136,8 +136,20 @@ Shakedrop is given as:
 2. This means as alpha gets close to 0 or 1, the gradient gets close to infinity / a very very large number - an exploding gradient.
 3. The two branches work as a failsafe because when &alpha; is close to 0 or 1 the gradient on the other branch is still manageable.
 4. Since, single branch shake does not have this fail-safe that is probably why it doesn't do well.
-5. There's a note that says that &beta;/&alpha; or (1- &beta;)/(1-&alpha;) do well if they are on the same side of 0.5, that is &alpha; and &beta; are 0.5 and 0.7 because the scaling is less than the case when say &alpha and &beta; are 0.1 and 0.9 respectively. Less likely to explode a gradient with the former.
+5. There's a note that says that &beta;/&alpha; or (1- &beta;)/(1-&alpha;) do well if they are on the same side of 0.5, that is &alpha; and &beta; are 0.5 and 0.7 because the scaling is less than the case when say &alpha; and &beta; are 0.1 and 0.9 respectively. Less likely to explode a gradient with the former.
+* The authors suggest using RandomDrop to balance out the effects of regularization and pertubation (explosion of gradient).
+* They further suggest that learning is correctly promoted the original resnet network / base network of choice is selected and the Random Drop is only selected when there could be an exploding gradient. I think the idea is that we just drop the layer which caused the gradient to explode.
 
+## Relationship with existing regularization methods:
+* The authors compare ShakeDrop vs RandomDrop and Dropout.
+   1. ShakeDrop does not explicitly generate new data. THe scaling factors (&alpha; and &beta;) scale the input so it seems like the data point is different.
+   2. ShakeDrop doesn't update network parameters based on noisy gradients.
+* Data Augmentation and Adversarial Training generate new data explicitly. 
+   1. Data Augmentation does so on say image data by rotation, flipping, varying the brightness or contrast to make a slightly or vastly different copy of the original image.
+   2. To be honest, I dont know much about Adversarial training. Adversarial Training, all I know is we generate some samples to try and fool the network.
+* The authors summarize their results in this table: &nbsp; &nbsp <img src="https://cdn.mathpix.com/snip/images/MUf3-bezBY6aE45BGjQeNA4LI7faveIqlsi1XJzRy0A.original.fullsize.png"> <br>
+
+   
 
       
       
