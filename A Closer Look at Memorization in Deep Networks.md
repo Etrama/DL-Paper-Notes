@@ -17,7 +17,7 @@
  
   * EC(A) = Effective Capacity of some input A.
   * The input A = Learning Algorithm - defined by both the model and the training procedure - Train Resnet for 1000 epochs using SGD with a learning rate of 0.01
-  * h - conditonal output, provided there exists D such that this h belongs to <i>A(D)<i>.
+  * h - conditonal output, provided there exists D such that this h belongs to <i>A(D)</i>.
   * So the effective capacity is dependent on the architecture (Resnet) , the optimization method (Adam/SGD/AdaGrad), the number of epochs that a network is trained for (10/100/1000....), the learning rate (0.1/0.01/0.001) and also differs for every Dataset, since the optimal hyper-parameters will be differenet for every dataset for a particular architecture.
 ### Do we also include other parameters involved in the training whie defining A? Factors such as the batch size, the train and test transofrms, etc? Perhaps the GPU on which we train the network?
 
