@@ -40,3 +40,14 @@ Citations:
               biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1802-02375},
               bibsource = {dblp computer science bibliography, https://dblp.org}
             }
+            
+3. A Closer look at Generalization in Deep Network
+
+            @inproceedings{arpit2017closer,
+              title={A closer look at memorization in deep networks},
+              author={Arpit, Devansh and Jastrz{\k{e}}bski, Stanis{\l}aw and Ballas, Nicolas and Krueger, David and Bengio, Emmanuel and                    Kanwal, Maxinder S and Maharaj, Tegan and Fischer, Asja and Courville, Aaron and Bengio, Yoshua and others},
+              booktitle={Proceedings of the 34th International Conference on Machine Learning-Volume 70},
+              pages={233--242},
+              year={2017},
+              organization={JMLR. org}
+            }
